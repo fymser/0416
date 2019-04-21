@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>雍禾植发</title>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/rem.js"></script>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+
+<div id='one'>
+    <div class="expert" id="expert">
+        <img src="images/expert1.png" height="192" width="750"/>
+        <div class="msg">
+            <h6>简单填写，快速预约专家</h6>
+            <form class="form2" name="form2" action="http://hb.zhifabbs.cn/plus/diy.php" enctype="multipart/form-data" method="post">
+                <input type="hidden" name="action" value="post"/>
+                <input type="hidden" name="diyid" value="34"/>
+                <input type="hidden" name="do" value="2"/>
+                <div class="form-input">
+                    <label for="name">您的称呼 <i>*</i> </label>
+                    <input type="text" name="name" id="name1" placeholder="请输入您的姓名">
+                </div>
+                <div class="form-input">
+                    <label for="phone">手机号码 <i>*</i> </label>
+                    <input type="text" name="phone" id="phone1" placeholder="请输入有效电话，将严格保密!">
+                </div>
+                <input type='hidden' name='ly' id='ly' class='intxt' value=''/>
+                <input type="hidden" name="addtime">
+                <input type="hidden" name='weizhi' id='ly' value=""/>
+                <input type="hidden" name="dede_fields" value="name,text;phone,text;ly,text;addtime,text;weizhi,text"/>
+                <input type="hidden" name="dede_fieldshash" value="ec613b439768047e710f40b06b1029d5"/>
+                <button type="submit" class="btn" id="expert_btn">快速预约与专家面对面</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script language="javascript">
+    var fromurl = window.location.href;
+    ;
+    document.getElementById('ly').value = fromurl;
+    $('.form2').submit(function () {
+        // console.log();
+
+        if ($('.form2 #phone1').val() == '') {
+            alert('请输入您的手机号')
+            return false
+        } else {
+            if (!/^1[34578]\d{9}$/.test($('.form2 #phone1').val())) {
+                alert('手机号格式错误');
+                return false
+            }
+        }
+        var fromurl = window.location.href;
+        ;
+        document.getElementById('ly').value = fromurl;
+        return true;
+    });
+
+    $("input").on("blur",function(){
+        var h = $(document).height()-$(window).height();
+        $(document).scrollTop(h);
+    })
+
+</script>
+</body>
+</html>
